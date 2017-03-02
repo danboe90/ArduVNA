@@ -18,6 +18,35 @@ The following components have been used:
 - AD9851
 - LCD DEM16216
 
+##Hardware Pinning
+ ________________________ _________________________
+|        Arduino (Pins)  |       AD9851 (Pins)     |
+|________________________|_________________________|
+|           D2           |          FQ_UD          |
+|           D3           |          WCLK           |
+|           D4           |          D7  (DATA)     |
+|           GND          |          GND            |
+|           +5V          |          Vcc            |
+|________________________|_________________________|
+
+ ________________________ _________________________
+|       Arduino (Pins)   |        LCD (Pins)       |
+|________________________|_________________________|
+|           D7           |          4       (RS)   |
+|           D8           |          6       (E)    |
+|           D9           |          11      (DB4)  |
+|           D10          |          12      (DB5)  |
+|           D11          |          13      (DB6)  |
+|           D12          |          14      (DB7)  |
+|           +5V          |          2       (VDD)  |
+|           GND          |          1, 3, 5 (GND)  |
+|________________________|_________________________|
+
+
+
+
+
+
 ##ToDo's
 Currently open things:
 - ensuring a flexible communication protocol over UART
