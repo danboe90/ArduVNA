@@ -7,6 +7,11 @@ where stored during the research.
 Part of the code was taken from the following sources:
 - https://github.com/umarsear/Arduino-AD9851-DDS-Direct-Digital-synthesizer-Signal-Generator
 
+Other Information was taken from:
+- http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/DDS_AD9830_3.jpg
+- http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/
+- http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/ad9850_1%20manual.pdf
+
 ##Hardware Used
 The following components have been used:
 - Arduino Nano
