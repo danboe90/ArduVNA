@@ -51,6 +51,6 @@ The following components have been used:
 ##ToDo's
 Currently open things:
 - [ ] ensuring a flexible communication protocol over UART
-- [ ]adding several features to the existant Continuous and Single Sweep
+- [ ] adding several features to the existant Continuous and Single Sweep
 - [ ] adding Hardware (receiver hardware) -> to measure Bode-Diagramms etc
 - [ ] adding transmission protocol of measured values
