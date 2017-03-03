@@ -53,11 +53,28 @@ The following components have been used:
 |						 |			PWR				|
 
 
+##Usage
+Open *.ino with the Arduino IDE.
+Flash the Project onto the Arduino Nano.
+Send <mode,f_start,f_stop,steps>\n to the Ardunio via UART.
+
+###Mode (mode)
+| mode | Explanation |
+| ---- | ----------- |
+|  c   |	continuous SweepMode |
+|  s   |    single Sweep Mode
+
+###Start Frequency (f_start)
+type: unsigned long 
+
+###Stop Frequency (f_stop)
+type: unsigned long
 
 
 ##ToDo's
 Currently open things:
 - [x] setup pinmap for AD8302
+- [ ] Upload Source Code for the Arduino
 - [ ] ensuring a flexible communication protocol over UART
 - [ ] adding several features to the existant Continuous and Single Sweep
 - [ ] adding Hardware (receiver hardware) -> to measure Bode-Diagramms etc
