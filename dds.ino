@@ -1,8 +1,8 @@
 /**
- *        Author:         Daniel Böck
+ *        Author:         danboe90
  *        Date:           28-02-2017
  *        Version:        1.0.0
- *        Description:    This file holds functions for controlling an AD9851 with an Arduino Nano.
+ *        Description:    This file holds functions for controlling an AD9851 and AD8302 with an Arduino Nano.
  */
 
 
