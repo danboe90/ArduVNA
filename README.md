@@ -73,6 +73,7 @@ Currently open things:
 - [ ] adding transmission protocol of measured values
 
 
+## References and Sources
 Unfortunatly not all sources where stored during the research. 
 Part of the code was taken from the following sources:
 - https://github.com/umarsear/Arduino-AD9851-DDS-Direct-Digital-synthesizer-Signal-Generator
