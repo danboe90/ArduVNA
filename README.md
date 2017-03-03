@@ -14,9 +14,10 @@ Other Information was taken from:
 
 ##Hardware Used
 The following components have been used:
-- Arduino Nano
-- AD9851
-- LCD DEM16216
+- [x] Arduino Nano
+- [x] AD9851
+- [x] LCD DEM16216
+- [ ] AD8302
 
 ##Hardware Pinning
 
