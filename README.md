@@ -39,10 +39,10 @@ There are several other displays that support the same pinning.
 
 |		Arduino (Pins)	 |			AD8302 (Pins)   |
 | ---------------------- | ------------------------ |
-|						 |			+V			    |
-|						 |			GND			    |
+|			+5V			 |			+V			    |
+|			GND			 |			GND			    |
 |						 |			PH				|
-|						 |			VREF			|
+|			nc			 |			VREF			|
 |						 |			PWR				|
 
 
