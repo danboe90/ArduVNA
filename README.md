@@ -3,13 +3,14 @@
 ##General
 This project aims to realize a Vector Network Analizer (VNA) with the help of an Arduino Nano.
 All including functions are a mix of *"found somewere on the web"* and *"written on my own"*. 
+Please look at the branches for the Source-Codes.
 
 ##Hardware Used
 The following components have been used:
 - [x] Arduino Nano
 - [x] AD9851
 - [x] LCD DEM16216
-- [ ] AD8302
+- [x] AD8302
 
 ##Hardware Pinning
 
