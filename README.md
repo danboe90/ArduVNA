@@ -21,7 +21,7 @@ The following components have been used:
 |           D4           |          D7  (DATA)     |
 |           GND          |          GND            |
 |           +5V          |          Vcc            |
-AD9851 requires 3 digital IO Pins to set the output-frequency
+AD9851 requires 3 digital IO Pins to set the output-frequency.
 
 
 |       Arduino (Pins)   |        LCD (Pins)       |
@@ -34,7 +34,7 @@ AD9851 requires 3 digital IO Pins to set the output-frequency
 |           D12          |          14      (DB7)  |
 |           +5V          |          2       (VDD)  |
 |           GND          |          1, 3, 5 (GND)  |
-
+There are several other displays that support the same pinning.
 
 
 |		Arduino (Pins)	 |			AD8302 (Pins)   |
