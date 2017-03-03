@@ -9,7 +9,7 @@ The following components have been used:
 - [x] Arduino Nano
 - [x] AD9851
 - [x] LCD DEM16216
-- [ ] AD8302
+- [x] AD8302
 
 ##Hardware Pinning
 
@@ -41,9 +41,9 @@ There are several other displays that support the same pinning.
 | ---------------------- | ------------------------ |
 |			+5V			 |			+V			    |
 |			GND			 |			GND			    |
-|						 |			PH				|
+|			A1			 |			PH				|
 |			nc			 |			VREF			|
-|						 |			PWR				|
+|			A0			 |			PWR				|
 
 
 ##Usage
