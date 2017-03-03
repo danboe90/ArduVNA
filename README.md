@@ -67,10 +67,10 @@ type: unsigned long
 ##ToDo's
 Currently open things:
 - [x] setup pinmap for AD8302
-- [ ] Upload Source Code for the Arduino
+- [x] Upload Source Code for the Arduino
 - [ ] ensuring a flexible communication protocol over UART
 - [ ] adding several features to the existant Continuous and Single Sweep
-- [ ] adding Hardware (receiver hardware) -> to measure Bode-Diagramms etc
+- [x] adding Hardware (receiver hardware) -> to measure Bode-Diagramms etc
 - [ ] adding transmission protocol of measured values
 
 
