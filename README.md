@@ -44,7 +44,9 @@ The following components have been used:
 |           GND          |          1, 3, 5 (GND)  |
 
 
-
+|		Arduino (Pins)	 |			AD8302 (Pins)  |
+| ---------------------- | ----------------------- |
+|						 |						   |
 
 
 
