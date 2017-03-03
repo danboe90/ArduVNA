@@ -3,14 +3,6 @@
 ##General
 This project aims to realize a Vector Network Analizer (VNA) with the help of an Arduino Nano.
 All including functions are a mix of "found somewere on the web" and "written on my own". 
-Unfortunatly not all sources where stored during the research. 
-Part of the code was taken from the following sources:
-- https://github.com/umarsear/Arduino-AD9851-DDS-Direct-Digital-synthesizer-Signal-Generator
-
-Other Information was taken from:
-- http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/DDS_AD9830_3.jpg
-- http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/
-- http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/ad9850_1%20manual.pdf
 
 ##Hardware Used
 The following components have been used:
@@ -59,10 +51,10 @@ Flash the Project onto the Arduino Nano.
 Send ```<mode,f_start,f_stop,steps>\n``` to the Ardunio via UART.
 
 ###Mode (mode)
-| mode | Explanation |
-| ---- | ----------- |
+| mode | 		Explanation 	 |
+| ---- | ----------------------- |
 |  c   |	continuous SweepMode |
-|  s   |    single Sweep Mode
+|  s   |    single Sweep Mode	 |
 
 ###Start Frequency (f_start)
 type: unsigned long 
@@ -79,3 +71,13 @@ Currently open things:
 - [ ] adding several features to the existant Continuous and Single Sweep
 - [ ] adding Hardware (receiver hardware) -> to measure Bode-Diagramms etc
 - [ ] adding transmission protocol of measured values
+
+
+Unfortunatly not all sources where stored during the research. 
+Part of the code was taken from the following sources:
+- https://github.com/umarsear/Arduino-AD9851-DDS-Direct-Digital-synthesizer-Signal-Generator
+
+Other Information was taken from:
+- http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/DDS_AD9830_3.jpg
+- http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/
+- http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/ad9850_1%20manual.pdf
