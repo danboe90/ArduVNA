@@ -76,6 +76,11 @@ Defines the only frequency that should be generated.
 
 ##ToDo's
 Currently open things:
+- [ ] ensuring a flexible communication protocol over UART
+- [ ] adding transmission protocol of measured values
+- [ ] adding several error covering routines to the existant Continuous and Single Sweep
+
+Done things:
 - [x] setup pinmaping for AD8302
 - [x] Upload Source Code for the Arduino
 - [x] Add frequency dependent delays to obtain valid meassuring values (relevant for f<10MHz)
@@ -83,12 +88,10 @@ Currently open things:
 - [x] Avoid: receive from UART mode != ('c' | 's' | 'f')
 - [x] Add time-measuring for one sweep
 - [x] Enable the Modes 'c' and 's'
-- [ ] ensuring a flexible communication protocol over UART
-- [ ] adding several error covering routines to the existant Continuous and Single Sweep
 - [x] outsourcing functions into correspondign files
 - [x] simplifying setup() function
 - [x] adding Hardware (receiver hardware) -> to measure Bode-Diagramms etc
-- [ ] adding transmission protocol of measured values
+
 
 
 ## References and Sources
