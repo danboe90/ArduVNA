@@ -64,7 +64,9 @@ type: unsigned long
 type: unsigned long
 
 ###Steps (steps)
-type: unsigned long
+type: unsigned long  
+Defines the amout of steps the sweep takes to get from f_start to f_stop.  
+This value cant be higher than ```f_stop - f_start```
 
 
 ##ToDo's
