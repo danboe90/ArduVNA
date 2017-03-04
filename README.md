@@ -50,12 +50,14 @@ There are several other displays that support the same pinning.
 Open *.ino with the Arduino IDE.
 Flash the Project onto the Arduino Nano.
 Send ```<mode,f_start,f_stop,steps>\n``` to the Ardunio via UART.
+Alternativly it is posible to just configure on output-frequency with ```<mode,frequency>\n```.
 
 ###Mode (mode)
 | mode | 		Explanation 	 |
 | ---- | ----------------------- |
 |  c   |	continuous SweepMode |
 |  s   |    single Sweep Mode	 |
+|  f   |    single frequency Mode|
 
 ###Start Frequency (f_start)
 **type:** unsigned long 

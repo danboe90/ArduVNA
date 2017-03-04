@@ -14,11 +14,24 @@ void checkProtocol()
   
   if(inString.charAt(1) == 'f')
   {
+    continuousSweep = false;
+    singleSweep     = false;
     inString.toCharArray(buf, inString.length());
     rtn = sscanf(buf, "<%c,%lu>\n", &mode, &single_frequency);
-
-    updateFrequency(single_frequency);
-    lcdSweepMode('F');
+    if(rtn > 0)
+    {
+      if(single_frequency < MAX_FREQUENCY)
+      {
+        updateFrequency(single_frequency);
+        lcdSingleFrequency(single_frequency);
+        lcdSweepMode('F');
+      }
+      else
+      {
+        // print error
+      }
+    }
+    inString="";
   }
 
 
@@ -54,5 +67,8 @@ void checkProtocol()
     continuousSweep   = false;
     printError(1);
   }
+
+  inString="";
+  stringComplete = false;
 }
 

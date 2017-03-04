@@ -30,6 +30,8 @@
  */
 void updateFrequency(unsigned long frequency)
 {
+  // Serial.print("Set to: ");
+  // Serial.print(frequency);
   unsigned long tuning_word = (frequency * pow(2, 32)) / DDS_CLOCK;
   digitalWrite (FQ_UD, LOW); // take load pin low
 

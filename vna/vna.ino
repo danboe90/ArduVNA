@@ -47,6 +47,9 @@
 #define PWR_IN                                      A0              // Arduino Pin (A0)
 #define PH_IN                                       A1              // Arduino Pin (A1)
 
+#define MAX_FREQUENCY                               30000000        // 30MHz as maximum frequency
+#define MIN_FREQUENCY                                               // xxHz as minimum frequency
+
 
 /************************************************** INCLUDES **************************************************/
 #include <LiquidCrystal.h>
@@ -65,8 +68,8 @@ boolean         stringComplete    = false;    // defines if received message fro
 char            mode;                         // defines the mode received from the GUI
 
 // Generation Modes - are set depending on content of 'char mode'
-boolean         continuousSweep;               // true if in continuous mode 
-boolean         singleSweep;                   // true if in single sweep mode
+boolean         continuousSweep   = false;               // true if in continuous mode 
+boolean         singleSweep       = false;                   // true if in single sweep mode
 
 // for the LCD
 LiquidCrystal   lcd(7,8,9,10,11,12);          // Pinning listed above for the Display
