@@ -1,11 +1,11 @@
 
-
+/**
+ *    @brief    prints out an error message
+ */
 void printError(int err)
 {
   lcd.clear();
   lcd.setCursor(0,0);
-
-
   
   switch(err)
   {
@@ -16,17 +16,49 @@ void printError(int err)
     case 3:   lcd.print("sscanf Err.");       // display when sscanf returnss an error
               break;
   }
+  
   lcdSweepMode('E');
 }
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+/**
+ *    @brief    outputs the Letter corresponding for the Operational Mode
+ *              'C':  Continuous Sweep Mode
+ *              'S':  Single Sweep Mode
+ *              'F':  Single Frequency Mode
+ */
 void lcdSweepMode(char mode)
 {
   lcd.setCursor(15,0);
   lcd.print(mode);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 void lcdSingleFrequency(unsigned long frequency)
@@ -56,6 +88,20 @@ void lcdSingleFrequency(unsigned long frequency)
     lcd.print("Hz");
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
