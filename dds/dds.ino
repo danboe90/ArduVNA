@@ -169,7 +169,7 @@ void loop()
   {
     for(unsigned long i=start_frequency; i<=stop_frequency ; i=i+diff_frequency)
     {
-      sendFrequency(i);
+      updateFrequency(i);
     }
   }
 
@@ -183,9 +183,11 @@ void loop()
     // by setting singleSweep to false at the end of the for-loop another frequency sweep is avoided
     for(unsigned long i=start_frequency; i<=stop_frequency ; i=i+diff_frequency)
     {
-      sendFrequency(i);
+      updateFrequency(i);   // setting frequency on the DDS
+      mag_ph_ADC();         // obtaining received values from AD8302
+      sendFrequency(i);     // sending values over UART
     }
-    sendFrequency(0);
+    updateFrequency(0);
     singleSweep = false;
   }
 }
@@ -321,7 +323,7 @@ void loop()
  *              Function taken from http://fritzing.org/media/fritzing-repo/projects/d/dds-generator-ad9851-with-keypad-and-lcd/code/AD9851_ARDUINO.ino
  *    @param    frequency, interpreted as Hz
  */
-void sendFrequency(unsigned long frequency)
+void updateFrequency(unsigned long frequency)
 {
   unsigned long tuning_word = (frequency * pow(2, 32)) / DDS_CLOCK;
   digitalWrite (FQ_UD, LOW); // take load pin low
@@ -337,6 +339,20 @@ void sendFrequency(unsigned long frequency)
   byte_out(0x09);
 
   digitalWrite (FQ_UD, HIGH); // Take load pin high again
+}
+
+
+void sendFrequency(unsigned long frq)
+{
+  Serial.print("f=");
+  Serial.print(frq);
+  Serial.print("Hz/");
+  Serial.print("MAG: ");
+  Serial.print(magFinal);
+  Serial.print("/");
+  Serial.print("PHASE: ");
+  Serial.print(phsFinal);
+  Serial.print('\n');
 }
 
 
