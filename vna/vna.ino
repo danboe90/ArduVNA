@@ -11,26 +11,8 @@
 
 
 /************************************************** PINNING **************************************************/
-// Source:  http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/DDS_AD9830_3.jpg
-//          http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/
-//          http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/ad9850_1%20manual.pdf
-// 
-//
-//       ________________________ _________________________
-//      |        Arduino (Pins)  |       AD9851 (Pins)     |
-//      |________________________|_________________________|
-//      |           D2           |          FQ_UD          |
-//      |           D3           |          WCLK           |
-//      |           D4           |          D7  (DATA)     |
-//      |           GND          |          GND            |
-//      |           +5V          |          Vcc            |
-//      |________________________|_________________________|
 //
 //
-
-
-
-
 //
 //
 //       ________________________ _________________________
@@ -50,19 +32,7 @@
 
 
 
-//
-//
-//       ________________________ _________________________
-//      |       Arduino (Pins)   |        AD8302 (Pins)    |
-//      |________________________|_________________________|
-//      |          +5V           |         +V              |
-//      |          GND           |         GND             |
-//      |          A1            |         PH              |
-//      |          A0            |         PWR             |
-//      |          nc            |         VREF            |
-//      |________________________|_________________________|
-// 
-// 
+
 
 
 
@@ -89,6 +59,7 @@
 unsigned long   start_frequency   = 0;        // start frequency
 unsigned long   stop_frequency    = 0;        // stop frequency
 unsigned long   step_frequency    = 0;        // amount of steps between start and stop frequency
+unsigned long   single_frequency  = 0;        // holds a single frequency value
 String          inString;                     // holds received message from UART
 boolean         stringComplete    = false;    // defines if received message from UART has ended and was terminated with '\n'
 char            mode;                         // defines the mode received from the GUI
@@ -305,6 +276,41 @@ void loop()
         stringComplete = false;
         inString = "";
       }
+      else
+      {
+        int rtn2 = sscanf(buf, "<%c,%lu>\n", &mode, &single_frequency);
+
+        if(rtn2 != -1)
+        {
+          // ******************** first row ********************
+          lcd.clear();
+          lcd.setCursor(0,0);
+          lcd.print("f=");
+          if(start_frequency/1000000 > 0)
+          {
+            lcd.print((float)(start_frequency/1000000.0));
+            lcd.print("MHz");
+          }
+          else if(start_frequency/1000 > 0)
+          {
+            lcd.print((float)(start_frequency/1000.0));
+            lcd.print("kHz");
+          }
+          else
+          {
+            lcd.print(start_frequency);
+            lcd.print("Hz");
+          }
+          // display the Mode
+          if(mode== 'f')
+          {
+            continuousSweep = false;        
+            singleSweep = false;
+            lcd.setCursor(15,0);
+            lcd.print("F");
+          }
+        }
+      }
     }
  }
 
@@ -315,109 +321,6 @@ void loop()
 
 
 
-
-
-
-/**
- *    @brief    Set the obtained Value as described in the Datasheet found at: 
- *              http://www.analog.com/media/en/technical-documentation/data-sheets/AD9851.pdf
- *              (Figure 13 on Page 14)
- *              Function taken from http://fritzing.org/media/fritzing-repo/projects/d/dds-generator-ad9851-with-keypad-and-lcd/code/AD9851_ARDUINO.ino
- *    @param    frequency, interpreted as Hz
- */
-void updateFrequency(unsigned long frequency)
-{
-  unsigned long tuning_word = (frequency * pow(2, 32)) / DDS_CLOCK;
-  digitalWrite (FQ_UD, LOW); // take load pin low
-
-  for(int i = 0; i < 32; i++)
-  {
-    if ((tuning_word & 1) == 1)
-      outOne();
-    else
-      outZero();
-    tuning_word = tuning_word >> 1;
-  }
-  byte_out(0x09);
-
-  digitalWrite (FQ_UD, HIGH); // Take load pin high again
-}
-
-
-void sendFrequency(unsigned long frq)
-{
-  Serial.print("f=");
-  Serial.print(frq);
-  Serial.print("Hz/");
-  Serial.print("MAG: ");
-  Serial.print(magFinal);
-  Serial.print("/");
-  Serial.print("PHASE: ");
-  Serial.print(phsFinal);
-  Serial.print('\n');
-}
-
-
-/**
- *    @brief      Reading values from the ADC. Adaptation to full scale is done and stored the final value in the 
- *                ***Final-Variables.
- */
-void mag_ph_ADC()
-{
-  // fetch value from ADC
-  unsigned int adcmag = analogRead(PWR_IN);
-  unsigned int adcphs = analogRead(PH_IN);
-
-  //adaptation of the Value
-  magFinal = (60.0 /1024) * adcmag -60.0;
-  phsFinal = (180/1024) * adcphs;
-}
-
-
-/************************************************** HELPERFUNCTIONS **************************************************/
-
-
-/**
- *    @brief    HelperFunction to write an entire byte to the AD9851 Module
- */
-void byte_out(unsigned char byte)
-{
-  int i;
-
-  for (i = 0; i < 8; i++)
-  {
-    if ((byte & 1) == 1)
-      outOne();
-    else
-      outZero();
-    byte = byte >> 1;
-  }
-}
-
-
-
-/**
- *    @brief    Helper function to write '1' (BIN, Base=2) to the AD9851 Module
- */
-void outOne()
-{
-  digitalWrite(CLOCK, LOW);
-  digitalWrite(DATA, HIGH);
-  digitalWrite(CLOCK, HIGH);
-  digitalWrite(DATA, LOW);
-}
-
-
-
-/**
- *    @brief    Helper fucntion to write '0' (BIN, Base=2) to the AD9851 Module
- */
-void outZero()
-{
-  digitalWrite(CLOCK, LOW);
-  digitalWrite(DATA, LOW);
-  digitalWrite(CLOCK, HIGH);
-}
 
 
 
