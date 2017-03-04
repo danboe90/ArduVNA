@@ -183,9 +183,13 @@ void loop()
     // by setting singleSweep to false at the end of the for-loop another frequency sweep is avoided
     for(unsigned long i=start_frequency; i<=stop_frequency ; i=i+diff_frequency)
     {
-      updateFrequency(i);   // setting frequency on the DDS
-      mag_ph_ADC();         // obtaining received values from AD8302
-      sendFrequency(i);     // sending values over UART
+      updateFrequency(i);               // setting frequency on the DDS
+      if(i<=10000000)
+      {
+        delayMicroseconds(10*(1/i));    // wait 10 periods of the set frequency to obtain correct values
+      }
+      mag_ph_ADC();                     // obtaining received values from AD8302
+      sendFrequency(i);                 // sending values over UART
     }
     updateFrequency(0);
     singleSweep = false;
