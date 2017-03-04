@@ -97,6 +97,7 @@ void setup()
 
   // Setup-Code for the LCD-Display
   lcd.begin(16, 2);
+  lcd.clear();
   
   // setting Pins for the AD9851 Module
   pinMode (DATA, OUTPUT);         // sets pin 10 as OUPUT

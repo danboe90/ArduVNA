@@ -11,13 +11,14 @@ void checkProtocol()
   
   
 
-  Serial.print(inString.charAt(1));
+  
   if(inString.charAt(1) == 'f')
   {
     inString.toCharArray(buf, inString.length());
     rtn = sscanf(buf, "<%c,%lu>\n", &mode, &single_frequency);
 
     updateFrequency(single_frequency);
+    lcdSweepMode('F');
   }
 
 
@@ -51,6 +52,7 @@ void checkProtocol()
     // Huston we have a problem
     singleSweep       = false;
     continuousSweep   = false;
+    printError(1);
   }
 }
 
