@@ -60,16 +60,19 @@ Alternativly it is posible to just configure on output-frequency with ```<mode,f
 |  f   |    single frequency Mode|
 
 ###Start Frequency (f_start)
-**type:** unsigned long 
+**type:** unsigned long  
 
 ###Stop Frequency (f_stop)
-**type:** unsigned long
+**type:** unsigned long  
 
 ###Steps (steps)
 **type:** unsigned long  
 Defines the amout of steps the sweep takes to get from f_start to f_stop.  
 This value cant be higher than ```f_stop - f_start```
 
+###Single Frequency (frequency)
+**type:** unsinged long  
+Defines the only frequency that should be generated.
 
 ##ToDo's
 Currently open things:
