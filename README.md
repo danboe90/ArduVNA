@@ -73,12 +73,12 @@ This value cant be higher than ```f_stop - f_start```
 
 ##ToDo's
 Currently open things:
-- [x] setup pinmap for AD8302
+- [x] setup pinmaping for AD8302
 - [x] Upload Source Code for the Arduino
 - [x] Add frequency dependen delays to obtain valid meassuring values (relevant for f<10MHz)
-- [x] Avoid: steps > f_stop - f_start
-- [ ] Avoid: receive from UART mode != ('c' | 's' | 'f')
-- [x] Add time-measuring for one swwep
+- [ ] Avoid: steps > f_stop - f_start
+- [x] Avoid: receive from UART mode != ('c' | 's' | 'f')
+- [x] Add time-measuring for one sweep
 - [ ] ensuring a flexible communication protocol over UART
 - [ ] adding several features to the existant Continuous and Single Sweep
 - [x] adding Hardware (receiver hardware) -> to measure Bode-Diagramms etc

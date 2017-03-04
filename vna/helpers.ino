@@ -20,7 +20,7 @@ void checkProtocol()
     rtn = sscanf(buf, "<%c,%lu>\n", &mode, &single_frequency);
     if(rtn > 0)
     {
-      if(single_frequency < MAX_FREQUENCY)
+      if(single_frequency <= MAX_FREQUENCY)
       {
         updateFrequency(single_frequency);
         lcdSingleFrequency(single_frequency);
@@ -28,8 +28,12 @@ void checkProtocol()
       }
       else
       {
-        // print error
+        printError(2);
       }
+    }
+    else
+    {
+      printError(3);
     }
     inString="";
   }

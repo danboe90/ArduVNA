@@ -9,9 +9,11 @@ void printError(int err)
   
   switch(err)
   {
-    case 1:   lcd.print("Error occured");
+    case 1:   lcd.print("Protocol Err.");     // displayed when issues with 
               break;
-    case 2:   lcd.print("Value Error");
+    case 2:   lcd.print("Value Err.");       // displayed when values are incorrect
+              break;
+    case 3:   lcd.print("sscanf Err.")
               break;
   }
   lcdSweepMode('E');
