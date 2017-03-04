@@ -71,9 +71,10 @@ type: unsigned long
 Currently open things:
 - [x] setup pinmap for AD8302
 - [x] Upload Source Code for the Arduino
-- [ ] Add frequency dependen delays to obtain valid meassuring values (relevant for f<10MHz)
-- [ ] Avoid: steps > f_stop - f_start
+- [x] Add frequency dependen delays to obtain valid meassuring values (relevant for f<10MHz)
+- [x] Avoid: steps > f_stop - f_start
 - [ ] Avoid: receive from UART mode != ('c' | 's')
+- [x] Add time-measuring for one swwep
 - [ ] ensuring a flexible communication protocol over UART
 - [ ] adding several features to the existant Continuous and Single Sweep
 - [x] adding Hardware (receiver hardware) -> to measure Bode-Diagramms etc
