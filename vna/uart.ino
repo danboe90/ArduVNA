@@ -14,3 +14,35 @@ void sendFrequency(unsigned long frq)
   Serial.print(phsFinal);
   Serial.print('\n');
 }
+
+
+
+
+
+
+
+/**
+ *    @brief    This function is called when a Serial Event happens. 
+ *              Available Data is stored and sent to the UART when received a \n character
+ */
+
+ void serialEvent()
+ {
+    while (Serial.available()) 
+    {
+      // get the new byte:
+      char inChar = (char)Serial.read();
+      // add it to the inString:
+      inString += inChar;
+      if(inChar == '\n')
+      {
+        stringComplete = true;
+      }
+    }
+
+    //  string is complete      string starts with '<'          string ends with '>\n'
+    if( (stringComplete) && (inString.charAt(0) == '<') && (inString.charAt(inString.length()-2) == '>') ) 
+    {
+      checkProtocol();
+    }
+ }

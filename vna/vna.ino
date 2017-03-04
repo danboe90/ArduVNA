@@ -102,10 +102,7 @@ void setup()
   lcd.begin(16, 2);
   lcd.clear();
   
-  // setting Pins for the AD9851 Module
-  pinMode (DATA, OUTPUT);         // sets pin 10 as OUPUT
-  pinMode (CLOCK, OUTPUT);        // sets pin 9 as OUTPUT
-  pinMode (FQ_UD, OUTPUT);        // sets pin 8 as OUTPUT
+  initAD9851();
 
   // setting pins for AD8302 Module
   pinMode (PWR_IN, INPUT);
@@ -177,31 +174,7 @@ void loop()
 
 
 
-/**
- *    @brief    This function is called when a Serial Event happens. 
- *              Available Data is stored and sent to the UART when received a \n character
- */
 
- void serialEvent()
- {
-    while (Serial.available()) 
-    {
-      // get the new byte:
-      char inChar = (char)Serial.read();
-      // add it to the inString:
-      inString += inChar;
-      if(inChar == '\n')
-      {
-        stringComplete = true;
-      }
-    }
-
-    //  string is complete      string starts with '<'          string ends with '>\n'
-    if( (stringComplete) && (inString.charAt(0) == '<') && (inString.charAt(inString.length()-2) == '>') ) 
-    {
-      checkProtocol();
-    }
- }
 
 
 

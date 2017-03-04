@@ -90,3 +90,23 @@ void outZero()
   digitalWrite(DATA, LOW);
   digitalWrite(CLOCK, HIGH);
 }
+
+
+
+
+
+
+
+
+
+
+
+void initAD9851()
+{
+  // setting Pins for the AD9851 Module
+  pinMode (DATA, OUTPUT);         // sets pin 10 as OUPUT
+  pinMode (CLOCK, OUTPUT);        // sets pin 9 as OUTPUT
+  pinMode (FQ_UD, OUTPUT);        // sets pin 8 as OUTPUT
+}
+}
+
