@@ -179,6 +179,7 @@ void loop()
   {
     // set all frequencies ones. Then set the AD9851 Module to output 0Hz
     // by setting singleSweep to false at the end of the for-loop another frequency sweep is avoided
+    unsigned long timestamp = micros();
     for(unsigned long i=start_frequency; i<=stop_frequency ; i=i+diff_frequency)
     {
       updateFrequency(i);               // setting frequency on the DDS
@@ -191,6 +192,10 @@ void loop()
     }
     updateFrequency(0);                 // after completing sweep setting frequency back to zero
     singleSweep = false;                // avoiding continuous sweep
+    Serial.print("Finished in: ");
+    Serial.print((micros() - timestamp)/1000000.0);   // obtain value in seconds
+    Serial.print("sec");
+    Serial.print('\n');
   }
 }
 
