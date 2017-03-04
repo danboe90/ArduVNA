@@ -60,7 +60,9 @@ void lcdSweepMode(char mode)
 
 
 
-
+/**
+ *    @brief      displays the set Frequency, when in Signle Frequency Mode
+ */
 void lcdSingleFrequency(unsigned long frequency)
 {  
   // Debug
