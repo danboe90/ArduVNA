@@ -191,8 +191,8 @@ void loop()
       mag_ph_ADC();                     // obtaining received values from AD8302
       sendFrequency(i);                 // sending values over UART
     }
-    updateFrequency(0);
-    singleSweep = false;
+    updateFrequency(0);                 // after completing sweep setting frequency back to zero
+    singleSweep = false;                // avoiding continuous sweep
   }
 }
 
