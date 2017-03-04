@@ -77,7 +77,7 @@ Currently open things:
 - [x] Upload Source Code for the Arduino
 - [x] Add frequency dependen delays to obtain valid meassuring values (relevant for f<10MHz)
 - [x] Avoid: steps > f_stop - f_start
-- [ ] Avoid: receive from UART mode != ('c' | 's')
+- [ ] Avoid: receive from UART mode != ('c' | 's' | 'f')
 - [x] Add time-measuring for one swwep
 - [ ] ensuring a flexible communication protocol over UART
 - [ ] adding several features to the existant Continuous and Single Sweep
