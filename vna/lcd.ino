@@ -107,7 +107,9 @@ void lcdSingleFrequency(unsigned long frequency)
 
 
 
-
+/**
+ *    @brief    outputs a wellcome message at the beginning of the boot sequence
+ */
 void lcdWellcome()
 {
   lcd.clear();
