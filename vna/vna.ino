@@ -102,8 +102,6 @@ LiquidCrystal   lcd(7,8,9,10,11,12);          // Pinning listed above for the Di
 
 
 // for the ADC
-unsigned int    adcmag;
-unsigned int    adcphs;
 float           magFinal;
 int             phsFinal;
 
@@ -227,8 +225,8 @@ void loop()
 
       if(rtn != -1)
       {
-        
-        if(stop_frequency > start_frequency)
+        //    f_stop > f_start                      steps <= f_stop-f_start
+        if((stop_frequency > start_frequency) && (step_frequency <= (stop_frequency - start_frequency)))
         {
           // values where passed correctly
         }
@@ -238,76 +236,71 @@ void loop()
           start_frequency = 0;
           mode='e';
         }
-      }
-      
-      lcd.clear();
-      lcd.setCursor(0,0);
-      lcd.print("fsta=");
-      if(start_frequency/1000000 > 0)
-      {
-        lcd.print((float)(start_frequency/1000000.0));
-        lcd.print("MHz");
-      }
-      else if(start_frequency/1000 > 0)
-      {
-        lcd.print((float)(start_frequency/1000.0));
-        lcd.print("kHz");
-      }
-      else
-      {
-        lcd.print(start_frequency);
-        lcd.print("Hz");
-      }
-      
 
-      // display the Mode
-      if(mode== 'c')
-      {
-        continuousSweep = true;        
-        singleSweep = false;
-        lcd.setCursor(15,0);
-        lcd.print("C");
+        // ******************** first row ********************
+        lcd.clear();
+        lcd.setCursor(0,0);
+        lcd.print("fsta=");
+        if(start_frequency/1000000 > 0)
+        {
+          lcd.print((float)(start_frequency/1000000.0));
+          lcd.print("MHz");
+        }
+        else if(start_frequency/1000 > 0)
+        {
+          lcd.print((float)(start_frequency/1000.0));
+          lcd.print("kHz");
+        }
+        else
+        {
+          lcd.print(start_frequency);
+          lcd.print("Hz");
+        }
+        // display the Mode
+        if(mode== 'c')
+        {
+          continuousSweep = true;        
+          singleSweep = false;
+          lcd.setCursor(15,0);
+          lcd.print("C");
+        }
+        if(mode == 's')
+        {
+          continuousSweep = false;
+          singleSweep = true;
+          lcd.setCursor(15,0);
+          lcd.print("S");
+        }
+        if(mode == 'e')
+        {
+          continuousSweep = false;
+          singleSweep = false;
+          lcd.setCursor(15,0);
+          lcd.print("E");
+        }
+        // ******************** second row ********************
+        lcd.setCursor(0,1);
+        lcd.print("fsto=");
+        if(stop_frequency/1000000 > 0)
+        {
+          lcd.print((float)(stop_frequency/1000000.0));
+          lcd.print("MHz");
+        }
+        else if(stop_frequency/1000 > 0)
+        {
+          lcd.print((float)(stop_frequency/1000.0));
+          lcd.print("kHz");
+        }
+        else
+        {
+          lcd.print(stop_frequency);
+          lcd.print("Hz");
+        }
+        
+        stringComplete = false;
+        inString = "";
       }
-      if(mode == 's')
-      {
-        continuousSweep = false;
-        singleSweep = true;
-        lcd.setCursor(15,0);
-        lcd.print("S");
-      }
-      if(mode == 'e')
-      {
-        continuousSweep = false;
-        singleSweep = false;
-        lcd.setCursor(15,0);
-        lcd.print("E");
-      }
-
-      
-      // second row
-      lcd.setCursor(0,1);
-      lcd.print("fsto=");
-      if(stop_frequency/1000000 > 0)
-      {
-        lcd.print((float)(stop_frequency/1000000.0));
-        lcd.print("MHz");
-      }
-      else if(stop_frequency/1000 > 0)
-      {
-        lcd.print((float)(stop_frequency/1000.0));
-        lcd.print("kHz");
-      }
-      else
-      {
-        lcd.print(stop_frequency);
-        lcd.print("Hz");
-      }
-      
-      stringComplete = false;
-      inString = "";
     }
-
-    
  }
 
 
@@ -367,8 +360,8 @@ void sendFrequency(unsigned long frq)
 void mag_ph_ADC()
 {
   // fetch value from ADC
-  adcmag = analogRead(PWR_IN);
-  adcphs = analogRead(PH_IN);
+  unsigned int adcmag = analogRead(PWR_IN);
+  unsigned int adcphs = analogRead(PH_IN);
 
   //adaptation of the Value
   magFinal = (60.0 /1024) * adcmag -60.0;
