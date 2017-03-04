@@ -56,13 +56,16 @@ void checkProtocol()
     {
       if((stop_frequency > start_frequency) && (step_frequency < (stop_frequency - start_frequency)))
       {
+        lcdDualFrequency(start_frequency, stop_frequency);
         if(inString.charAt(1) == 'c')
         {
+          lcdSweepMode('C');
           singleSweep       = false;
           continuousSweep   = true;
         }
         if(inString.charAt(1) == 's')
         {
+          lcdSweepMode('S');
           singleSweep       = true;
           continuousSweep   = false;
         }

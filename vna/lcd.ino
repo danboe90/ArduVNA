@@ -94,7 +94,52 @@ void lcdSingleFrequency(unsigned long frequency)
 
 
 
+void lcdDualFrequency(unsigned long fStart, unsigned long fStop)
+{
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("fsta=");
+  if((fStart/1000000.0) > 1.0)
+  {
+    // Serial.print(frequency/1000000.0);
+    lcd.print(fStart/1000000.0);
+    lcd.print("MHz");
+  }
+  else if((fStart/1000.0) > 1.0)
+  {
+    // Serial.print(frequency/1000.0);
+    lcd.print(fStart/1000.0);
+    lcd.print("kHz");
+  }
+  else
+  {
+    lcd.print(fStart);
+    lcd.print("Hz");
+  }
 
+
+
+
+  lcd.setCursor(0,1);
+  lcd.print("fsto=");
+  if((fStop/1000000.0) > 1.0)
+  {
+    // Serial.print(frequency/1000000.0);
+    lcd.print(fStop/1000000.0);
+    lcd.print("MHz");
+  }
+  else if((fStop/1000.0) > 1.0)
+  {
+    // Serial.print(frequency/1000.0);
+    lcd.print(fStop/1000.0);
+    lcd.print("kHz");
+  }
+  else
+  {
+    lcd.print(fStop);
+    lcd.print("Hz");
+  }
+}
 
 
 
