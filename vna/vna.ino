@@ -113,6 +113,7 @@ void setup()
 
   // save some space for the incoming messages from UART
   inString.reserve(200);
+  lcdWellcome();
 }
 
 

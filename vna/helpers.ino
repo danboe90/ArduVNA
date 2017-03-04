@@ -48,15 +48,29 @@ void checkProtocol()
     inString.toCharArray(buf, inString.length());
     rtn = sscanf(buf, "<%c,%lu,%lu,%lu>\n", &mode, &start_frequency, &stop_frequency, &step_frequency);
 
-    if(inString.charAt(1) == 'c')
+    if(rtn > 0)
     {
-      singleSweep       = false;
-      continuousSweep   = true;
+      if((stop_frequency > start_frequency) && (step_frequency < (stop_frequency - start_frequency)))
+      {
+        if(inString.charAt(1) == 'c')
+        {
+          singleSweep       = false;
+          continuousSweep   = true;
+        }
+        if(inString.charAt(1) == 's')
+        {
+          singleSweep       = true;
+          continuousSweep   = false;
+        }
+      }
+      else
+      {
+        printError(2);
+      }
     }
-    if(inString.charAt(1) == 's')
+    else
     {
-      singleSweep       = true;
-      continuousSweep   = false;
+      printError(3);
     }
   }
 

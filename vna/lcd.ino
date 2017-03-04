@@ -11,9 +11,9 @@ void printError(int err)
   {
     case 1:   lcd.print("Protocol Err.");     // displayed when issues with 
               break;
-    case 2:   lcd.print("Value Err.");       // displayed when values are incorrect
+    case 2:   lcd.print("Value Err.");        // displayed when values are incorrect
               break;
-    case 3:   lcd.print("sscanf Err.")
+    case 3:   lcd.print("sscanf Err.");       // display when sscanf returnss an error
               break;
   }
   lcdSweepMode('E');
@@ -40,13 +40,13 @@ void lcdSingleFrequency(unsigned long frequency)
 
   if((frequency/1000000.0) > 1.0)
   {
-    Serial.print(frequency/1000000.0);
+    // Serial.print(frequency/1000000.0);
     lcd.print(frequency/1000000.0);
     lcd.print("MHz");
   }
   else if((frequency/1000.0) > 1.0)
   {
-    Serial.print(frequency/1000.0);
+    // Serial.print(frequency/1000.0);
     lcd.print(frequency/1000.0);
     lcd.print("kHz");
   }
@@ -55,5 +55,18 @@ void lcdSingleFrequency(unsigned long frequency)
     lcd.print(frequency);
     lcd.print("Hz");
   }
+}
+
+
+
+
+void lcdWellcome()
+{
+  lcd.clear();
+  lcd.setCursor(2, 0);
+  lcd.print("Wellcome to");
+  lcd.setCursor(4, 1);
+  lcd.print("ArduVNA");
+  delay(3000);
 }
 
