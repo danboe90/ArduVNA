@@ -1,42 +1,56 @@
 /************************************************** HELPERFUNCTIONS **************************************************/
 
 
-/**
- *    @brief    HelperFunction to write an entire byte to the AD9851 Module
- */
-void byte_out(unsigned char byte)
-{
-  int i;
 
-  for (i = 0; i < 8; i++)
+
+void checkProtocol()
+{
+  int rtn;              // return Value for the sscanf function
+  char buf[200];        // char array to handle the 
+  // split the string into substrings to get the components
+  
+  
+
+  Serial.print(inString.charAt(1));
+  if(inString.charAt(1) == 'f')
   {
-    if ((byte & 1) == 1)
-      outOne();
-    else
-      outZero();
-    byte = byte >> 1;
+    inString.toCharArray(buf, inString.length());
+    rtn = sscanf(buf, "<%c,%lu>\n", &mode, &single_frequency);
+
+    updateFrequency(single_frequency);
+  }
+
+
+
+
+
+  
+  else if(inString.charAt(1) == 'c' || inString.charAt(1) == 's')
+  {
+    inString.toCharArray(buf, inString.length());
+    rtn = sscanf(buf, "<%c,%lu,%lu,%lu>\n", &mode, &start_frequency, &stop_frequency, &step_frequency);
+
+    if(inString.charAt(1) == 'c')
+    {
+      singleSweep       = false;
+      continuousSweep   = true;
+    }
+    if(inString.charAt(1) == 's')
+    {
+      singleSweep       = true;
+      continuousSweep   = false;
+    }
+  }
+
+
+
+
+  
+  else
+  {
+    // Huston we have a problem
+    singleSweep       = false;
+    continuousSweep   = false;
   }
 }
 
-/**
- *    @brief    Helper function to write '1' (BIN, Base=2) to the AD9851 Module
- */
-void outOne()
-{
-  digitalWrite(CLOCK, LOW);
-  digitalWrite(DATA, HIGH);
-  digitalWrite(CLOCK, HIGH);
-  digitalWrite(DATA, LOW);
-}
-
-
-
-/**
- *    @brief    Helper fucntion to write '0' (BIN, Base=2) to the AD9851 Module
- */
-void outZero()
-{
-  digitalWrite(CLOCK, LOW);
-  digitalWrite(DATA, LOW);
-  digitalWrite(CLOCK, HIGH);
-}
