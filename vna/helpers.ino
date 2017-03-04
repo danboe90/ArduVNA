@@ -11,7 +11,9 @@ void checkProtocol()
   
   
 
-  
+  /**************************************************/
+  /*                 Single Frequency Mode          */ 
+  /**************************************************/
   if(inString.charAt(1) == 'f')
   {
     continuousSweep = false;
@@ -42,7 +44,9 @@ void checkProtocol()
 
 
 
-  
+  /**************************************************/
+  /*         Single/Continuous Sweep Mode           */ 
+  /**************************************************/
   else if(inString.charAt(1) == 'c' || inString.charAt(1) == 's')
   {
     inString.toCharArray(buf, inString.length());
