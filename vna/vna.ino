@@ -95,21 +95,14 @@ int             phsFinal;
 void setup()
 {
 
-  // Serial set to 9600 Baud 8N1
-  Serial.begin(115200);
+  initUART();
 
-  // Setup-Code for the LCD-Display
-  lcd.begin(16, 2);
-  lcd.clear();
+  initLCD();
   
   initAD9851();
+  
+  initAD8302(); 
 
-  // setting pins for AD8302 Module
-  pinMode (PWR_IN, INPUT);
-  pinMode (PH_IN, INPUT);
-
-  // save some space for the incoming messages from UART
-  inString.reserve(200);
   lcdWellcome();
 }
 

@@ -46,3 +46,13 @@ void sendFrequency(unsigned long frq)
       checkProtocol();
     }
  }
+
+
+ void initUART()
+ {
+  // Serial set to 9600 Baud 8N1
+  Serial.begin(115200);
+  // save some space for the incoming messages from UART
+  inString.reserve(200);
+ }
+

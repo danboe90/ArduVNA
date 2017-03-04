@@ -165,3 +165,14 @@ void lcdWellcome()
   delay(3000);
 }
 
+
+
+
+
+void initLCD()
+{
+  // Setup-Code for the LCD-Display
+  lcd.begin(16, 2);
+  lcd.clear();
+}
+

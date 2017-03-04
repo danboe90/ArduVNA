@@ -29,3 +29,13 @@ void mag_ph_ADC()
   magFinal = (60.0 /1024) * adcmag -60.0;
   phsFinal = (180/1024) * adcphs;
 }
+
+
+
+void initAD8302()
+{
+  // setting pins for AD8302 Module
+  pinMode (PWR_IN, INPUT);
+  pinMode (PH_IN, INPUT);
+}
+
