@@ -63,6 +63,9 @@ type: unsigned long
 ###Stop Frequency (f_stop)
 type: unsigned long
 
+###Steps (steps)
+type: unsigned long
+
 
 ##ToDo's
 Currently open things:
