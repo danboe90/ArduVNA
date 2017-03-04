@@ -79,7 +79,7 @@ Currently open things:
 - [ ] Avoid: steps > f_stop - f_start
 - [x] Avoid: receive from UART mode != ('c' | 's' | 'f')
 - [ ] Add time-measuring for one sweep
-- [ ] 
+- [ ] Enable the Modes 'c' and 's'
 - [ ] ensuring a flexible communication protocol over UART
 - [ ] adding several features to the existant Continuous and Single Sweep
 - [x] adding Hardware (receiver hardware) -> to measure Bode-Diagramms etc
