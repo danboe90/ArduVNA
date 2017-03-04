@@ -49,7 +49,9 @@ There are several other displays that support the same pinning.
 ##Usage
 Open *.ino with the Arduino IDE.
 Flash the Project onto the Arduino Nano.
-Send ```<mode,f_start,f_stop,steps>\n``` to the Ardunio via UART.
+Send  
+```<mode,f_start,f_stop,steps>\n```  
+to the Ardunio via UART.
 
 ###Mode (mode)
 | mode | 		Explanation 	 |
