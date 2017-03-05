@@ -9,6 +9,9 @@
  
 /**
  *    @brief    prints out an error message
+ *    @param    err,      1: Protocol error
+ *                        2: Value error, means: stop_frequency, start_frequency, step_frequency are erroneous
+ *                        3: function sscanf() caused an error while interpreting the received data
  */
 void printError(int err)
 {

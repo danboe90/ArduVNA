@@ -63,16 +63,21 @@ void checkProtocol()
 
     if(rtn > 0)
     {
+      // covering cases
+      // case 1:       f_stop > f_start 
+      // case 2:       steps < (f_stop - f_start)
+      // case 3:       (TODO) not defined yet, but will cover suitable values for step_frequency, as the resolution (ppm) of the AD9851 is not 1Hz
       if((stop_frequency > start_frequency) && (step_frequency < (stop_frequency - start_frequency)))
       {
+        // Display the frequencies
         lcdDualFrequency(start_frequency, stop_frequency);
-        if(inString.charAt(1) == 'c')
+        if(inString.charAt(1) == 'c')                 // Continuous Sweep
         {
           lcdSweepMode('C');
           singleSweep       = false;
           continuousSweep   = true;
         }
-        if(inString.charAt(1) == 's')
+        if(inString.charAt(1) == 's')                 // Single Sweep
         {
           lcdSweepMode('S');
           singleSweep       = true;
@@ -81,11 +86,13 @@ void checkProtocol()
       }
       else
       {
+        // values received caused an error
         printError(2);
       }
     }
     else
     {
+      // sscanf caused an errors
       printError(3);
     }
   }
@@ -96,7 +103,7 @@ void checkProtocol()
   
   else
   {
-    // Huston we have a problem
+    // something with the protocol is wrong
     singleSweep       = false;
     continuousSweep   = false;
     printError(1);
