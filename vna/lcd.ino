@@ -105,9 +105,25 @@ void lcdSingleFrequency(unsigned long frequency)
 
 
 
+
+
+
+
+
+
+
+
+
+/**
+ *    @brief    display the frequencies for the Modes Continuous Sweep and Single Sweep
+ *    @param    fStart - start_frequency of the sweep
+ *    @param    fStop - stop_frequency of the sweep
+ */
 void lcdDualFrequency(unsigned long fStart, unsigned long fStop)
 {
   lcd.clear();
+
+  // ********** first row
   lcd.setCursor(0,0);
   lcd.print("fsta=");
   if((fStart/1000000.0) > 1.0)
@@ -130,7 +146,7 @@ void lcdDualFrequency(unsigned long fStart, unsigned long fStop)
 
 
 
-
+  // ********** second row
   lcd.setCursor(0,1);
   lcd.print("fsto=");
   if((fStop/1000000.0) > 1.0)
