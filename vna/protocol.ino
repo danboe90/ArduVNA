@@ -1,3 +1,12 @@
+/**
+ *        Author:         danboe90
+ *        Date:           05-03-2017
+ *        Version:        1.0.0
+ *        Description:    This file holds functions for the protocol for the UART transmission between GUI and Arduino Nano.
+ */
+
+
+
 /************************************************** HELPERFUNCTIONS **************************************************/
 
 

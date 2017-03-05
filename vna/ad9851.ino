@@ -1,3 +1,10 @@
+/**
+ *        Author:         danboe90
+ *        Date:           05-03-2017
+ *        Version:        1.0.0
+ *        Description:    This file holds functions for controlling an AD9851 with an Arduino Nano.
+ */
+
 /************************************************** PINNING **************************************************/
 // Source:  http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/DDS_AD9830_3.jpg
 //          http://www.elechouse.com/elechouse/images/product/AD985x%20DDS%20Module/

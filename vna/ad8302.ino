@@ -1,3 +1,11 @@
+/**
+ *        Author:         danboe90
+ *        Date:           05-03-2017
+ *        Version:        1.0.0
+ *        Description:    This file holds functions for controlling an AD8302 with an Arduino Nano.
+ */
+
+
 /************************************************** PINNING **************************************************/
 //
 //

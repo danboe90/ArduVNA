@@ -1,4 +1,12 @@
+/**
+ *        Author:         danboe90
+ *        Date:           05-03-2017
+ *        Version:        1.0.0
+ *        Description:    This file holds functions for controlling an LCD with an Arduino Nano.
+ */
 
+
+ 
 /**
  *    @brief    prints out an error message
  */

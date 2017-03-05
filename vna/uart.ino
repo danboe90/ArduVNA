@@ -1,4 +1,14 @@
 /**
+ *        Author:         danboe90
+ *        Date:           05-03-2017
+ *        Version:        1.0.0
+ *        Description:    This file holds functions for sending and receiving over the UART of the Arduino Nano.
+ */
+
+
+
+
+/**
  *    @brief    Sends the received values from the sweep over the UART to a GUI.
  *    @param    frq: is the Frequency at which the values are measured
  */
