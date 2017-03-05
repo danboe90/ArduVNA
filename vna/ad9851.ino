@@ -115,5 +115,4 @@ void initAD9851()
   pinMode (CLOCK, OUTPUT);        // sets pin 9 as OUTPUT
   pinMode (FQ_UD, OUTPUT);        // sets pin 8 as OUTPUT
 }
-}
 

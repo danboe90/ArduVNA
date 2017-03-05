@@ -58,7 +58,7 @@ void sendFrequency(unsigned long frq)
  }
 
 
- void initUART()
+ void initUart()
  {
   // Serial set to 9600 Baud 8N1
   Serial.begin(115200);

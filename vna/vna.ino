@@ -95,7 +95,7 @@ int             phsFinal;
 void setup()
 {
 
-  initUART();
+  initUart();
 
   initLCD();
   
