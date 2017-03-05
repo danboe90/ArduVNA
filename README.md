@@ -79,6 +79,7 @@ Currently open things:
 - [ ] ensuring a flexible communication protocol over UART
 - [ ] adding transmission protocol of measured values
 - [ ] adding several error covering routines to the existant Continuous and Single Sweep
+- [ ] Avoid using values for steps, that are beneath the accuracy of AD9851
 
 Done things:
 - [x] setup pinmaping for AD8302
